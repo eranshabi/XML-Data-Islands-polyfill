@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+</head>
+
+<body>
+<TABLE
+                          id="tableForExample"
+                          DATASRC="#tableDataXML"
+                          style="visibility:hidden;"
+                          onreadystatechange = "initTable()">
+                          <TBODY>
+                            <TR>
+							  <TD style="border: 1px solid green"><SPAN DATAFLD="data1"></SPAN></TD>
+                              <TD style="border: 1px solid red;"><SPAN DATAFLD="data2"></SPAN></TD>
+                              <TD style="border: 1px solid blue;"><SPAN DATAFLD="data3"></SPAN></TD>
+                            </TR>
+                          </TBODY>
+                        </TABLE>
+                      </DIV>
+                    </TD>
+                  </TR>
+                </TABLE>
+
+
+
+  <XML id="tableDataXML">
+    </XML>
+
+<script src="xmlIslandsPolyfill.js"></script>
+<script>
+var xmlString = `<rootElement>
+<dataElement>
+<data1>Row 1</data1>
+<data2>81010</data2>
+<data3>First row</data3>
+</dataElement>
+<dataElement>
+<data1>Row 2</data1>
+<data2>23434</data2>
+<data3>Second row</data3>
+</dataElement>
+<dataElement>
+<data1>Row 3</data1>
+<data2>34667</data2>
+<data3>Some text</data3>
+</dataElement>
+<dataElement>
+<data1>Row 4</data1>
+<data2>82456</data2>
+<data3>Some more text</data3>
+</dataElement>
+</rootElement>`;
+
+document.getElementById("tableDataXML").innerHTML = xmlString;
+
+function initTable() {
+	document.getElementById("tableForExample").style.visibility="visible";
+}
+</script>
+
+<body>
+</html>
