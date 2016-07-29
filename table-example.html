@@ -1,35 +1,32 @@
 <!doctype html>
 <html>
+
 <head>
 </head>
 
 <body>
-<TABLE
-                          id="tableForExample"
-                          DATASRC="#tableDataXML"
-                          style="visibility:hidden;"
-                          onreadystatechange = "initTable()">
-                          <TBODY>
-                            <TR>
-							  <TD style="border: 1px solid green"><SPAN DATAFLD="data1"></SPAN></TD>
-                              <TD style="border: 1px solid red;"><SPAN DATAFLD="data2"></SPAN></TD>
-                              <TD style="border: 1px solid blue;"><SPAN DATAFLD="data3"></SPAN></TD>
-                            </TR>
-                          </TBODY>
-                        </TABLE>
-                      </DIV>
-                    </TD>
-                  </TR>
-                </TABLE>
-
-
+  <TABLE id="tableForExample" DATASRC="#tableDataXML" style="visibility:hidden;" onreadystatechange="initTable()">
+    <TBODY>
+      <TR>
+        <TD style="border: 1px solid green">
+          <SPAN DATAFLD="data1"></SPAN>
+        </TD>
+        <TD style="border: 1px solid red;">
+          <SPAN DATAFLD="data2"></SPAN>
+        </TD>
+        <TD style="border: 1px solid blue;">
+          <SPAN DATAFLD="data3"></SPAN>
+        </TD>
+      </TR>
+    </TBODY>
+  </TABLE>
 
   <XML id="tableDataXML">
-    </XML>
+  </XML>
 
-<script src="xmlIslandsPolyfill.js"></script>
-<script>
-var xmlString = `<rootElement>
+  <script src="xmlIslandsPolyfill.js"></script>
+  <script>
+    var xmlString = `<rootElement>
 <dataElement>
 <data1>Row 1</data1>
 <data2>81010</data2>
@@ -51,13 +48,13 @@ var xmlString = `<rootElement>
 <data3>Some more text</data3>
 </dataElement>
 </rootElement>`;
+    document.getElementById("tableDataXML").innerHTML = xmlString;
 
-document.getElementById("tableDataXML").innerHTML = xmlString;
+    function initTable() {
+      document.getElementById("tableForExample").style.visibility = "visible";
+    }
+  </script>
 
-function initTable() {
-	document.getElementById("tableForExample").style.visibility="visible";
-}
-</script>
+</body>
 
-<body>
 </html>
