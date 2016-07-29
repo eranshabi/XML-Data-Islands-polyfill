@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+</head>
+
+<body>
+<TABLE
+                          id="tableForExample"
+                          DATASRC="#formXML"
+                          style="visibility:hidden;"
+                          onreadystatechange = "initTable()">
+						<tr><td>
+                          <INPUT
+							  TYPE="text"
+							  id="textInput1"
+							  DATAFLD="textInput1">
+							<LABEL FOR="textInput1">
+							text input 1
+							</LABEL>
+						</td></tr>
+						<tr><td>
+                          <INPUT
+							  TYPE="text"
+							  id="textInput2"
+							  DATAFLD="textInput2">
+							<LABEL FOR="textInput2">
+							text input 2
+							</LABEL>
+						</td></tr>
+						<tr><td>
+                          <INPUT
+							  TYPE="checkbox"
+							  id="cb1"
+							  DATAFLD="cb1">
+							<LABEL FOR="cb1">
+							cheackbox 1
+							</LABEL>
+						</td></tr>
+						<tr><td>
+                          <INPUT
+							  TYPE="checkbox"
+							  id="cb2"
+							  DATAFLD="cb2">
+							<LABEL FOR="cb2">
+							cheackbox 2
+							</LABEL>
+						</td></tr>
+						<tr><td>
+                          <SELECT
+							  id="select1"
+							  DATAFLD="select1">
+							  <option value="1">One</option>
+							  <option value="2">Two</option>
+							  <option value="3">Three</option>
+							  <option value="4">Four</option>
+							  </SELECT>
+							<LABEL FOR="select1">
+							select 1
+							</LABEL>
+						</td></tr>
+                        </TABLE>
+                      </DIV>
+                    </TD>
+                  </TR>
+                </TABLE>
+
+<br /><br />
+You can edit the XML here:
+<br />
+<textarea id="xml-for-edit" rows="10" cols="100" wrap="hard" oninput="updateXmlFromInput()"></textarea>
+
+  <XML id="formXML">
+    </XML>
+
+<script src="xmlIslandsPolyfill.js"></script>
+<script>
+var xmlString = `<rootElement>
+<textInput1>Change Me!</textInput1>
+<textInput2>Change Me Too!</textInput2>
+<cb1>-1</cb1>
+<cb2>0</cb2>
+<select1>2</select1>
+</rootElement>`;
+
+document.getElementById("formXML").innerHTML = xmlString;
+document.getElementById("xml-for-edit").value = xmlString;
+
+function initTable() {
+	document.getElementById("tableForExample").style.visibility="visible";
+}
+
+function updateXmlFromInput() {
+	document.getElementById("formXML").innerHTML = document.getElementById("xml-for-edit").value;
+}
+
+setInterval(() => {
+if (document.getElementById("xml-for-edit").value !== document.getElementById("formXML").innerHTML.text)
+document.getElementById("xml-for-edit").value = document.getElementById("formXML").outerHTML.xml;
+}, 50)
+</script>
+
+<body>
+</html>

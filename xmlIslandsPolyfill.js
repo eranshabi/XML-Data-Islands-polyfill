@@ -245,7 +245,6 @@ xmlDataIslandPolyfill.loaded || (function () {
             }
         } else if (element.type === "select-one") {
             return function () {
-                console.log(documents);
                 xml.getElementsByTagName(this.getAttribute("datafld"))[0].innerHTML = Number.parseInt(this.value);
             }
         }
@@ -267,7 +266,7 @@ xmlDataIslandPolyfill.loaded || (function () {
         elementsToBind.forEach(function (element) {
             setByXml(element, xml);
             element.updateXmlIsland = getFunctionOfListenerOfType(element, xml);
-            element.addEventListener("change", element.updateXmlIsland);
+			element.addEventListener(element.type === "checkbox" ? "change" : "input", element.updateXmlIsland);
         });
 
     }
