@@ -1,6 +1,7 @@
 var xmlDataIslandPolyfill = xmlDataIslandPolyfill || {};
 
 xmlDataIslandPolyfill.loaded || (function () {
+	'use strict';
     document.originalGetElementById = document.getElementById;
 
     document.getElementById = function (id) {
